@@ -17,7 +17,7 @@ class ColumnGridLayout(BaseLayoutConfiguration):
     def is_valid(self) -> bool:
         if sum(zone.width for zone in self.zones) > self.display_configuration.width * 2:
             return False
-        if sum(zone.height for zone in self.zones) > self.display_configuration.height * 2:
+        if sum(zone.height for zone in self.zones) > self.display_configuration.height * 3:
             return False
         if any(zone.x > self.display_configuration.width for zone in self.zones):
             return False
