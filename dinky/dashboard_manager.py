@@ -12,8 +12,8 @@ class DashboardManager():
         self.display_configuration: DisplayConfiguration = DisplayConfiguration()
         self.layout_configuration: BaseLayoutConfiguration = layout_configuration
 
-    def register(self, plugin: object, name: str):
-        self.pm.register(plugin, name=name)
+    def register(self, plugin: object, zone: str):
+        self.pm.register(plugin, name=zone)
 
     def draw_dashboard(self):
         im = Image.new("RGB", (self.display_configuration.width, self.display_configuration.height), (255, 255, 255))
