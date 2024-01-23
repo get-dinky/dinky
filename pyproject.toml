@@ -1,6 +1,6 @@
 [project]
 name = "dinky"
-version = "0.1.1"
+version = "0.1.2"
 description = "Home dashboard for the Inkyframe"
 readme = "README.md"
 requires-python = ">=3.8"
