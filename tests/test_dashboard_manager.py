@@ -8,8 +8,8 @@ hookimpl = pluggy.HookimplMarker("dinky")
 
 class TestPlugin:
     @hookimpl
-    def dinky_draw_zone(self, zone):
-        return Image.new("RGB", (zone.width, zone.height), (255, 255, 255))
+    def dinky_draw(self, zone, fullscreen):
+        return Image.new("RGB", (zone.width, zone.height), (255, 255, 255)), Image.new("RGB", (fullscreen.width, fullscreen.height), (255, 255, 255))
 
 def test_dashboard_manager_initialization():
     dashboard_manager = DashboardManager(ColumnGridLayout())
@@ -26,5 +26,5 @@ def test_dashboard_manager_draw_dashboard(mocker):
     dashboard_manager.register(TestPlugin(), "A")
     mock_image = mocker.Mock()
     mocker.patch('PIL.Image.new', return_value=mock_image)
-    dashboard_manager.draw_dashboard()
+    dashboard_manager.draw()
     assert mock_image.save.called
